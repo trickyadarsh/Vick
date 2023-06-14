@@ -28,7 +28,13 @@ async def is_admins(chat_id: int):
             chat_id, filter="administrators"
         )
     ]
+@bot.on_message(filters.command("start") & filters.private & ~filters.edited)
 
+async def start_(client: Client, message: Message):
+
+    await message.reply_photo(
+
+        photo=f"{BOT_IMAGE}",
 
 @bot.on_message(filters.command("start"))
 async def start(client, message):
